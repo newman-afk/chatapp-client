@@ -1,16 +1,35 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import languageData from "./language";
+import {
+  getValueFromSessionStorage,
+  setValueToSessionStorage,
+} from "./hooks/useStorage";
 
 const LanguageContext = createContext();
 
-export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("CN");
+const key = `${import.meta.env.VITE_PREFIX}language`;
 
-  const [siteContent, setSiteContent] = useState(languageData[language]);
+export function LanguageProvider({ children }) {
+  const [language, setLanguage] = useState();
+
+  const [siteContent, setSiteContent] = useState();
 
   useEffect(() => {
-    setSiteContent(languageData[language]);
+    if (language !== undefined && language !== null) {
+      setSiteContent(languageData[language]);
+      setValueToSessionStorage(key, language);
+    }
   }, [language]);
+
+  useEffect(() => {
+    const languageType = getValueFromSessionStorage(key);
+    if (languageType === null || languageType === undefined) {
+      navigator.language === "zh-CN" ? setLanguage("CN") : setLanguage("EN");
+    } else {
+      setLanguage(languageType);
+    }
+    // if (navigator.language.includes("en")) setLanguage("EN");
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, siteContent }}>
