@@ -9,7 +9,7 @@ export const SocketProvider = ({ children }) => {
   const { addMessageToDOM } = useChatLogsContext();
 
   useEffect(() => {
-    setSocket(io(import.meta.env.VITE_ORIGIN));
+    setSocket(io("https://noclue.onrender.com"));
   }, []);
 
   useEffect(() => {
