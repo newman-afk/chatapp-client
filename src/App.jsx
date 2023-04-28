@@ -1,13 +1,9 @@
-import SwitchLanguageButton from "./components/SwitchLanguageButton/SwitchLanguageBUtton";
-import ThemeSelect from "./components/theme/ThemeSelect";
+import { HomePage } from "./scenes";
 
 function App() {
   return (
     <>
-      <div className=" h-screen flex justify-center items-center text-lg">
-        <SwitchLanguageButton />
-        <ThemeSelect />
-      </div>
+      <HomePage />
     </>
   );
 }

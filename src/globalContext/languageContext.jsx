@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import languageData from "./language";
+import languageData from "../assets/language";
 import {
   getValueFromSessionStorage,
   setValueToSessionStorage,
-} from "./hooks/useStorage";
+} from "../hooks/useStorage";
 
 const LanguageContext = createContext();
 
@@ -38,6 +38,6 @@ export function LanguageProvider({ children }) {
   );
 }
 
-export default function uselanguageContext() {
+export default function useLanguageContext() {
   return useContext(LanguageContext);
 }

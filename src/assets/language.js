@@ -36,6 +36,22 @@ const language = {
         { value: "winter", content: "冬季" },
       ],
     },
+    navbar: {
+      websiteName: "无痕",
+    },
+    tooltips: {
+      switchLanguage: "选择显示语言",
+      selectTheme: "选择主题",
+    },
+    confirmButton: "确认",
+    room: "房间",
+    createRoom: "创建新房间",
+    joinRoom: "加入房间",
+    openRoom: "公开",
+    roomName: "房间名称",
+    roomPassword: "房间密码",
+    inputPlaceholder: "请输入……",
+    duplicateRoomName: "房间名重复",
   },
   EN: {
     theme: {
@@ -73,6 +89,22 @@ const language = {
         { value: "winter", content: "winter" },
       ],
     },
+    navbar: {
+      websiteName: "NoClue",
+    },
+    tooltips: {
+      switchLanguage: "Select display language",
+      selectTheme: "Select theme",
+    },
+    confirmButton: "Confirm",
+    room: "Room",
+    createRoom: "Create New Room",
+    joinRoom: "Join Room",
+    openRoom: "Open",
+    roomName: "Room Name",
+    roomPassword: "Room Password",
+    inputPlaceholder: "Type here...",
+    duplicateRoomName: "Duplicate room name",
   },
 };
 export default language;

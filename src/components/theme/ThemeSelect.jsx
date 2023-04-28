@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { themeChange } from "theme-change";
-import uselanguageContext from "../../languageContext";
+import uselanguageContext from "../../globalContext/languageContext";
 
 const key = `${import.meta.env.VITE_PREFIX}theme`;
 function ThemeSelect() {
@@ -23,19 +23,24 @@ function ThemeSelect() {
 
   return (
     <>
-      <select
-        data-choose-theme
-        data-key={key}
-        className="select select-ghost select-xs"
-        value={pickedTheme}
-        onChange={(e) => setPickedTheme(e.target.value)}
+      <div
+        className="tooltip  tooltip-bottom"
+        data-tip={siteContent?.tooltips.selectTheme}
       >
-        {siteContent?.theme.options.map((theme) => (
-          <option value={theme.value} key={theme.value}>
-            {theme.content}
-          </option>
-        ))}
-      </select>
+        <select
+          data-choose-theme
+          data-key={key}
+          className="select select-ghost select-xs"
+          value={pickedTheme}
+          onChange={(e) => setPickedTheme(e.target.value)}
+        >
+          {siteContent?.theme.options.map((theme) => (
+            <option value={theme.value} key={theme.value}>
+              {theme.content}
+            </option>
+          ))}
+        </select>
+      </div>
     </>
   );
 }
